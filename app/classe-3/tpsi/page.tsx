@@ -45,7 +45,7 @@ export default function TpsiClasse3Page() {
           </p>
         </Link>
 
-        {/* Lezione 3 (Nuova) */}
+        {/* Lezione 3 */}
         <Link 
           href="/classe-3/tpsi/codici-digitali-2"
           className="p-5 bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md hover:border-emerald-500 transition-all block group"
@@ -58,7 +58,20 @@ export default function TpsiClasse3Page() {
           </p>
         </Link>
 
-        {/* Lezione 4 */}
+        {/* Lezione 4 (Nuova) */}
+        <Link 
+          href="/classe-3/tpsi/codici-non-pesati"
+          className="p-5 bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md hover:border-indigo-500 transition-all block group"
+        >
+          <h2 className="text-xl font-bold text-gray-800 group-hover:text-indigo-600 mb-1">
+            🎛️ Codici Non Pesati e Speciali
+          </h2>
+          <p className="text-sm text-gray-600">
+            Eccesso 3, Codice di Gray (Encoder), 1 su N, Display a 7 segmenti e Matrice di punti.
+          </p>
+        </Link>
+
+        {/* Lezione 5 */}
         <Link 
           href="/classe-3/tpsi/huffman"
           className="p-5 bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md hover:border-amber-500 transition-all block group"
