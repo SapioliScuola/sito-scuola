@@ -99,6 +99,18 @@ export default function TpsiClasse3Page() {
           </p>
         </Link>
 
+          <Link 
+          href="/classe-3/tpsi/errori-e-codifiche"
+          className="p-5 bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md hover:border-amber-500 transition-all block group"
+        >
+          <h2 className="text-xl font-bold text-gray-800 group-hover:text-amber-600 mb-1">
+            🌳 Errori e codifiche
+          </h2>
+          <p className="text-sm text-gray-600">
+            Rilevazione e correzione d'errore, codici di Hamming, CRC e simulatore.
+          </p>
+        </Link>
+
       </div>
     </div>
   );
