@@ -162,6 +162,23 @@ export default function ScitaClasse2Page() {
             </p>
           </Link>
 
+                    {/* Modulo 9 */}
+          <Link 
+            href="/classe-2/scita/stringhe-e-liste"
+            className="p-5 bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md hover:border-amber-500 transition-all block group"
+          >
+            <div className="flex items-center justify-between mb-2">
+              <span className="bg-amber-100 text-amber-800 text-xs font-bold px-2.5 py-0.5 rounded">Modulo 9</span>
+              <span className="text-xs text-gray-400">Stringhe e Liste</span>
+            </div>
+            <h2 className="text-xl font-bold text-gray-800 group-hover:text-amber-600 mb-1">
+              Stringhe e Liste
+            </h2>
+            <p className="text-sm text-gray-600">
+              -
+            </p>
+          </Link>
+
         </div>
       </div>
     </div>
