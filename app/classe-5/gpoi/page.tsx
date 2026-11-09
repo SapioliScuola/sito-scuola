@@ -22,7 +22,21 @@ export default function GpoiClasse5Page() {
       {/* Spazio per i contenuti/materiali */}
       <div className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
         <h2 className="text-xl font-semibold mb-2">Materiale didattico</h2>
-        <p className="text-gray-500 text-sm">Nessun file caricato al momento.</p>
+        <Link 
+  href="/classe-5/gpoi/economia"
+  className="p-5 bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md hover:border-indigo-500 transition-all block group"
+>
+  <div className="flex items-center justify-between mb-2">
+    <span className="bg-indigo-100 text-indigo-800 text-xs font-bold px-2.5 py-0.5 rounded">GPOI</span>
+    <span className="text-xs text-gray-400">Teoria & Simulatori</span>
+  </div>
+  <h2 className="text-xl font-bold text-gray-800 group-hover:text-indigo-600 mb-1">
+    📊 Economia e Organizzazione d'Impresa
+  </h2>
+  <p className="text-sm text-gray-600">
+    Dispensa completa e simulatore interattivo con 50 domande d'esame estratte casualmente.
+  </p>
+</Link>
       </div>
     </div>
   );
