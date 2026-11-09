@@ -111,6 +111,22 @@ export default function TpsiClasse3Page() {
           </p>
         </Link>
 
+        <Link 
+  href="/classe-3/tpsi/codifiche-e-sistemi-di-controllo"
+  className="p-5 bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md hover:border-indigo-500 transition-all block group"
+>
+  <div className="flex items-center justify-between mb-2">
+    <span className="bg-indigo-100 text-indigo-800 text-xs font-bold px-2.5 py-0.5 rounded">Modulo 4</span>
+    <span className="text-xs text-gray-400">Teoria & Simulatori</span>
+  </div>
+  <h2 className="text-xl font-bold text-gray-800 group-hover:text-indigo-600 mb-1">
+    🔍 Codifiche e Sistemi di Controllo (Checksum & Check Digit)
+  </h2>
+  <p className="text-sm text-gray-600">
+    Errore di trasposizione, Codice Fiscale, Partita IVA (Formula di Luhn), IBAN (ISO 7064 Modulo 97) e simulatori online.
+  </p>
+</Link>
+
       </div>
     </div>
   );
