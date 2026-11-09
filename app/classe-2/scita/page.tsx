@@ -138,7 +138,7 @@ export default function ScitaClasse2Page() {
               <span className="text-xs text-gray-400">Pratica & Simulatori</span>
             </div>
             <h2 className="text-xl font-bold text-gray-800 group-hover:text-blue-600 mb-1">
-              🔁 Strutture Iterative in Python (Cicli for e while)
+              🔁 Struttura Iterative in Python (Cicli for e while)
             </h2>
             <p className="text-sm text-gray-600">
               Cicli for e while, funzione range(), tabella ASCII, stringhe, fattoriale e pattern triangolari.
@@ -152,30 +152,64 @@ export default function ScitaClasse2Page() {
           >
             <div className="flex items-center justify-between mb-2">
               <span className="bg-amber-100 text-amber-800 text-xs font-bold px-2.5 py-0.5 rounded">Modulo 8</span>
-              <span className="text-xs text-gray-400">Palestra di Codice</span>
+              <span className="text-xs text-gray-400">Palestra di Codice 1</span>
             </div>
             <h2 className="text-xl font-bold text-gray-800 group-hover:text-amber-600 mb-1">
               🏋️ Palestra di Programmazione: 10 Esercizi Progressivi
             </h2>
             <p className="text-sm text-gray-600">
-              Raccolta di 10 problemi di programmazione a difficoltà crescente (Senza soluzioni visibili) per la verifica delle competenze.
+              Raccolta di 10 problemi di programmazione a difficoltà crescente per la verifica delle competenze.
             </p>
           </Link>
 
-                    {/* Modulo 9 */}
+          {/* Modulo 9 */}
           <Link 
             href="/classe-2/scita/stringhe-e-liste"
-            className="p-5 bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md hover:border-amber-500 transition-all block group"
+            className="p-5 bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md hover:border-purple-500 transition-all block group"
           >
             <div className="flex items-center justify-between mb-2">
-              <span className="bg-amber-100 text-amber-800 text-xs font-bold px-2.5 py-0.5 rounded">Modulo 9</span>
-              <span className="text-xs text-gray-400">Stringhe e Liste</span>
+              <span className="bg-purple-100 text-purple-800 text-xs font-bold px-2.5 py-0.5 rounded">Modulo 9</span>
+              <span className="text-xs text-gray-400">Sequenze in Python</span>
             </div>
-            <h2 className="text-xl font-bold text-gray-800 group-hover:text-amber-600 mb-1">
-              Stringhe e Liste
+            <h2 className="text-xl font-bold text-gray-800 group-hover:text-purple-600 mb-1">
+              🔤 Le Stringhe e le Liste in Python
             </h2>
             <p className="text-sm text-gray-600">
-              -
+              Funzioni len(), chr(), ord(), slicing [start:stop], metodi find(), index(), count() e liste annidate.
+            </p>
+          </Link>
+
+          {/* Modulo 10: Nuova Palestra Esercizi V8 */}
+          <Link 
+            href="/classe-2/scita/esercizi-python-2"
+            className="p-5 bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md hover:border-emerald-500 transition-all block group"
+          >
+            <div className="flex items-center justify-between mb-2">
+              <span className="bg-emerald-100 text-emerald-800 text-xs font-bold px-2.5 py-0.5 rounded">Modulo 10</span>
+              <span className="text-xs text-gray-400">Palestra V8</span>
+            </div>
+            <h2 className="text-xl font-bold text-gray-800 group-hover:text-emerald-600 mb-1">
+              🐍 Palestra di Programmazione Python (96 Esercizi - V8)
+            </h2>
+            <p className="text-sm text-gray-600">
+              96 esercizi divisi in 8 parti: errori di sintassi, errori di logica e previsione dell'output.
+            </p>
+          </Link>
+
+          {/* Modulo 11: Esercizi di Scrittura Codice da Zero */}
+          <Link 
+            href="/classe-2/scita/esercizi-scrittura-python"
+            className="p-5 bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md hover:border-indigo-500 transition-all block group md:col-span-2"
+          >
+            <div className="flex items-center justify-between mb-2">
+              <span className="bg-indigo-100 text-indigo-800 text-xs font-bold px-2.5 py-0.5 rounded">Modulo 11</span>
+              <span className="text-xs text-gray-400">Scrittura da Zero</span>
+            </div>
+            <h2 className="text-xl font-bold text-gray-800 group-hover:text-indigo-600 mb-1">
+              ✍️ Esercizi di Scrittura Codice Python da Zero
+            </h2>
+            <p className="text-sm text-gray-600">
+              30 esercizi pratici con domande guida per sviluppare programmi completi: formule, condizionali, cicli, stringhe e liste.
             </p>
           </Link>
 
