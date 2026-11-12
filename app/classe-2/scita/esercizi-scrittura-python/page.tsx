@@ -1,7 +1,8 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import Link from 'next/link';
+import PythonEditor from '@/app/components/PythonEditor';
 
 interface EsercizioScrittura {
   id: number;
@@ -12,7 +13,6 @@ interface EsercizioScrittura {
   outputFormato?: string;
   templateCodice: string;
 }
-
 const eserciziScritturaData: EsercizioScrittura[] = [
   // --- PARTE 1 ---
   {
@@ -241,14 +241,20 @@ const eserciziScritturaData: EsercizioScrittura[] = [
 
 export default function EserciziScritturaPythonPage() {
   const [parteAttiva, setParteAttiva] = useState<number>(0);
-  // Stato per gestire quali soluzioni sono visibili (tramite ID esercizio)
   const [soluzioniVisibili, setSoluzioniVisibili] = useState<{ [key: number]: boolean }>({});
+  const [codiceEditor, setCodiceEditor] = useState<string>('');
+  const editorRef = useRef<HTMLDivElement>(null);
 
   const toggleSoluzione = (id: number) => {
     setSoluzioniVisibili((prev) => ({
       ...prev,
       [id]: !prev[id],
     }));
+  };
+
+  const caricaNellEditor = (codice: string) => {
+    setCodiceEditor(codice);
+    editorRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
   };
 
   const eserciziFiltrati = parteAttiva === 0 
@@ -261,27 +267,32 @@ export default function EserciziScritturaPythonPage() {
         href="/classe-2/scita" 
         className="text-sm text-blue-600 hover:underline mb-6 inline-flex items-center gap-1 font-medium"
       >
-        &larr; Torna a SCITA Classe 2ª
+        ← Torna a SCITA Classe 2ª
       </Link>
 
       <div className="bg-white p-6 md:p-10 rounded-xl shadow-sm border border-gray-200 space-y-8 text-gray-800">
         
         <header className="border-b-4 border-indigo-600 pb-4">
           <div className="inline-block bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide mb-2">
-            SCITA &bull; Classe 2ª
+            SCITA • Classe 2ª
           </div>
           <h1 className="text-3xl md:text-4xl font-extrabold text-blue-900">
             ✍️ Esercizi di Scrittura Codice Python da Zero (30 Esercizi)
           </h1>
           <p className="text-gray-600 mt-2 text-sm md:text-base">
-            Mettiti alla prova scrivendo il codice! Clicca su &quot;Mostra Soluzione&quot; per verificare il tuo algoritmo.
+            Scrivi e testa il tuo codice direttamente nell'editor qui sotto. Usa i pulsanti sugli esercizi per caricare una traccia o verificare la soluzione.
           </p>
         </header>
 
+        {/* EDITOR PYODIDE IN CIMA */}
+        <div ref={editorRef}>
+          <PythonEditor codiceIniziale={codiceEditor} />
+        </div>
+
         {/* Filtro Parti */}
-        <div className="space-y-2">
+        <div className="space-y-2 pt-2">
           <label className="text-xs font-bold text-gray-500 uppercase tracking-wider block">
-            Seleziona la Sezione dell&apos;Eserciziario:
+            Seleziona la Sezione dell'Eserciziario:
           </label>
           <div className="flex flex-wrap gap-2">
             <button
@@ -298,7 +309,7 @@ export default function EserciziScritturaPythonPage() {
                 parteAttiva === 1 ? 'bg-indigo-600 text-white shadow-sm' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
               }`}
             >
-              Parte 1: I/O &amp; Formule (1-6)
+              Parte 1: I/O & Formule (1-6)
             </button>
             <button
               onClick={() => setParteAttiva(2)}
@@ -322,7 +333,7 @@ export default function EserciziScritturaPythonPage() {
                 parteAttiva === 4 ? 'bg-indigo-600 text-white shadow-sm' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
               }`}
             >
-              Parte 4: Stringhe &amp; Liste (19-30)
+              Parte 4: Stringhe & Liste (19-30)
             </button>
           </div>
         </div>
@@ -362,22 +373,37 @@ export default function EserciziScritturaPythonPage() {
                 </div>
               )}
 
-              {/* Pulsante Toggle Soluzione */}
-              <div className="pt-2">
+              {/* Pulsanti Azione */}
+              <div className="pt-2 flex flex-wrap gap-2">
+                <button
+                  onClick={() => caricaNellEditor(`# ${ex.titolo}\n# Scrivi qui la tua soluzione:\n\n`)}
+                  className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs px-3.5 py-1.5 rounded-lg transition-all shadow-sm flex items-center gap-1.5 cursor-pointer"
+                >
+                  ⬆️ Inizia nell'Editor
+                </button>
+
                 <button
                   onClick={() => toggleSoluzione(ex.id)}
-                  className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs px-3.5 py-1.5 rounded-lg transition-all shadow-sm flex items-center gap-1.5"
+                  className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs px-3.5 py-1.5 rounded-lg transition-all shadow-sm flex items-center gap-1.5 cursor-pointer"
                 >
-                  {soluzioniVisibili[ex.id] ? '🙈 Nascondi Soluzione' : '💡 Mostra Soluzione / Codice'}
+                  {soluzioniVisibili[ex.id] ? '🙈 Nascondi Soluzione' : '💡 Mostra Soluzione'}
                 </button>
               </div>
 
               {/* Blocco Codice visibile solo al click */}
               {soluzioniVisibili[ex.id] && (
-                <div className="space-y-1 pt-2 animate-fadeIn">
-                  <span className="text-[11px] font-mono font-bold text-emerald-700 block">
-                    🐍 Soluzione Python Proposta:
-                  </span>
+                <div className="space-y-2 pt-2 animate-fadeIn">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[11px] font-mono font-bold text-emerald-700">
+                      🐍 Soluzione Python Proposta:
+                    </span>
+                    <button
+                      onClick={() => caricaNellEditor(ex.templateCodice)}
+                      className="text-[11px] font-bold text-indigo-600 hover:underline cursor-pointer"
+                    >
+                      ⬆️ Copia soluzione nell'Editor
+                    </button>
+                  </div>
                   <pre className="bg-slate-900 text-green-400 p-3 rounded font-mono text-xs overflow-x-auto leading-relaxed border border-slate-700 shadow-inner">
                     <code>{ex.templateCodice}</code>
                   </pre>

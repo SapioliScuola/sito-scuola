@@ -1,12 +1,15 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import Link from 'next/link';
 import { fontDataEsercizi, Esercizio } from './data';
+import PythonEditor from '../../../components/PythonEditor';
 
 export default function EserciziPythonV8CompletoPage() {
   const [parteAttiva, setParteAttiva] = useState<number>(0);
   const [categoriaAttiva, setCategoriaAttiva] = useState<string>('tutte');
+  const [codiceSelezionato, setCodiceSelezionato] = useState<string>('');
+  const editorRef = useRef<HTMLDivElement>(null);
 
   const eserciziFiltrati = fontDataEsercizi.filter((ex) => {
     const matchParte = parteAttiva === 0 || ex.parte === parteAttiva;
@@ -14,14 +17,18 @@ export default function EserciziPythonV8CompletoPage() {
     return matchParte && matchCategoria;
   });
 
+  const inviaAllEditor = (codice: string) => {
+    setCodiceSelezionato(codice);
+    editorRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  };
+
   return (
     <div className="max-w-5xl mx-auto px-4 py-8">
-      {/* Link di ritorno */}
       <Link 
         href="/classe-2/scita" 
         className="text-sm text-blue-600 hover:underline mb-6 inline-flex items-center gap-1 font-medium"
       >
-        &larr; Torna a SCITA Classe 2ª
+        ← Torna a SCITA Classe 2ª
       </Link>
 
       <div className="bg-white p-6 md:p-10 rounded-xl shadow-sm border border-gray-200 space-y-8 text-gray-800">
@@ -29,20 +36,25 @@ export default function EserciziPythonV8CompletoPage() {
         {/* Header */}
         <header className="border-b-4 border-emerald-600 pb-4">
           <div className="inline-block bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide mb-2">
-            SCITA &bull; Classe 2ª
+            SCITA • Classe 2ª
           </div>
           <h1 className="text-3xl md:text-4xl font-extrabold text-blue-900">
             🐍 Palestra di Programmazione Python (96 Esercizi - V8)
           </h1>
           <p className="text-gray-600 mt-2 text-sm md:text-base">
-            Raccolta completa dei 96 esercizi ufficiali organizzati in 8 Parti e 3 Tipologie di verifica.
+            Copia o invia il codice di un esercizio nell'editor qui sotto per correggerlo ed eseguirlo direttamente nel browser.
           </p>
         </header>
 
+        {/* EDITOR PYODIDE IN CIMA */}
+        <div ref={editorRef}>
+          <PythonEditor codiceIniziale={codiceSelezionato} />
+        </div>
+
         {/* Filtro per Parte */}
-        <div className="space-y-2">
+        <div className="space-y-2 pt-2">
           <label className="text-xs font-bold text-gray-500 uppercase tracking-wider block">
-            Filtra per Parte dell&apos;Eserciziario:
+            Filtra per Parte dell'Eserciziario:
           </label>
           <div className="flex flex-wrap gap-2">
             <button
@@ -112,14 +124,14 @@ export default function EserciziPythonV8CompletoPage() {
                 categoriaAttiva === 'previsione' ? 'bg-emerald-600 text-white' : 'bg-emerald-50 text-emerald-700 hover:bg-emerald-100'
               }`}
             >
-              Previsione dell&apos;Output
+              Previsione dell'Output
             </button>
           </div>
         </div>
 
         {/* Conteggio Risultati */}
-        <div className="text-xs font-bold text-gray-500 pt-2 border-b border-gray-200 pb-2 flex items-center justify-between">
-          <span>Esercizi Visualizzati: {eserciziFiltrati.length} di 96</span>
+        <div className="text-xs font-bold text-gray-500 pt-2 border-b border-gray-200 pb-2">
+          Esercizi Visualizzati: {eserciziFiltrati.length} di 96
         </div>
 
         {/* Griglia Esercizi */}
@@ -145,9 +157,18 @@ export default function EserciziPythonV8CompletoPage() {
                 )}
               </div>
 
-              <pre className="bg-slate-900 text-green-400 p-3 rounded font-mono text-xs overflow-x-auto leading-relaxed mt-2 border border-slate-700">
-                <code>{ex.codice}</code>
-              </pre>
+              <div className="space-y-2 mt-2">
+                <pre className="bg-slate-900 text-green-400 p-3 rounded font-mono text-xs overflow-x-auto leading-relaxed border border-slate-700">
+                  <code>{ex.codice}</code>
+                </pre>
+
+                <button
+                  onClick={() => inviaAllEditor(ex.codice)}
+                  className="w-full py-1.5 px-3 bg-indigo-50 hover:bg-indigo-100 text-indigo-700 border border-indigo-200 rounded font-bold text-[11px] transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
+                >
+                  ⬆️ Prova nell'Editor
+                </button>
+              </div>
             </div>
           ))}
         </div>
