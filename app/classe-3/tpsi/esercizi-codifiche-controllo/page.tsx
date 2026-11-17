@@ -44,6 +44,81 @@ export default function EserciziarioCodifichePage() {
           </p>
         </header>
 
+                {/* Sezione Quiz Interattivi Kahoot */}
+<section className="bg-gradient-to-r from-purple-900 via-indigo-900 to-purple-800 p-6 rounded-xl text-white shadow-md border border-purple-700 space-y-4">
+  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-purple-700/60 pb-3">
+    <div>
+      <span className="bg-amber-400 text-purple-950 text-[10px] font-extrabold px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+        Sfida la Classe
+      </span>
+      <h2 className="text-xl font-extrabold mt-1 flex items-center gap-2">
+        🎮 Quiz Interattivi su Kahoot!
+      </h2>
+    </div>
+    <p className="text-xs text-purple-200">
+      Metti alla prova le tue conoscenze in tempo reale
+    </p>
+  </div>
+
+  <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
+    {[
+{
+        num: 1,
+        titolo: 'Kahoot #1',
+        sottotitolo: 'Codici rilevatori e correttori di errore',
+        url: 'https://create.kahoot.it/details/70d8ef83-8fdb-4824-859b-6f58328d1311',
+        colore: 'from-pink-600 to-rose-600 hover:from-pink-500 hover:to-rose-500 border-pink-400/40',
+      },
+      {
+        num: 2,
+        titolo: 'Kahoot #2',
+        sottotitolo: 'Fondamenti di codifica e codici pesati',
+        url: 'https://create.kahoot.it/details/9170d66d-9663-4a83-8755-b9e251051c39',
+        colore: 'from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 border-purple-400/40',
+      },
+      {
+        num: 3,
+        titolo: 'Kahoot #3',
+        sottotitolo: 'BUS, distanza di Hamming e controllo errori',
+        url: 'https://create.kahoot.it/details/94f97543-e9ba-4be8-85dc-620144529448',
+        colore: 'from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 border-cyan-400/40',
+      },
+      {
+        num: 4,
+        titolo: 'Kahoot #4',
+        sottotitolo: 'Codifica ottica: Barcode 1D e QR Code',
+        url: 'https://create.kahoot.it/details/8f399f2e-5627-4c57-a10d-7b1ca142558b',
+        colore: 'from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 border-emerald-400/40',
+      },
+    ].map((quiz) => (
+      <a
+        key={quiz.num}
+        href={quiz.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={`bg-gradient-to-br ${quiz.colore} p-4 rounded-xl border shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all flex flex-col justify-between group`}
+      >
+        <div className="flex items-center justify-between mb-2">
+          <span className="bg-black/25 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase">
+            Quiz {quiz.num}
+          </span>
+          <span className="text-white/80 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform text-xs">
+            ↗
+          </span>
+        </div>
+        <div>
+          <h3 className="font-extrabold text-base text-white">{quiz.titolo}</h3>
+          <p className="text-[11px] text-white/90 mt-0.5">{quiz.sottotitolo}</p>
+        </div>
+        <div className="mt-3 pt-2 border-t border-white/20 text-[11px] font-bold text-white flex items-center justify-between">
+          <span>Gioca ora</span>
+          <span>→</span>
+        </div>
+      </a>
+    ))}
+  </div>
+</section>
+
         {/* Filtri Categoria */}
         <div className="space-y-2">
           <label className="text-xs font-bold text-gray-500 uppercase tracking-wider block">

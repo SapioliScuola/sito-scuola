@@ -46,6 +46,81 @@ export default function EserciziPythonV8CompletoPage() {
           </p>
         </header>
 
+        {/* Sezione Quiz Interattivi Kahoot */}
+<section className="bg-gradient-to-r from-purple-900 via-indigo-900 to-purple-800 p-6 rounded-xl text-white shadow-md border border-purple-700 space-y-4">
+  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-purple-700/60 pb-3">
+    <div>
+      <span className="bg-amber-400 text-purple-950 text-[10px] font-extrabold px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+        Sfida la Classe
+      </span>
+      <h2 className="text-xl font-extrabold mt-1 flex items-center gap-2">
+        🎮 Quiz Interattivi su Kahoot!
+      </h2>
+    </div>
+    <p className="text-xs text-purple-200">
+      Metti alla prova le tue conoscenze in tempo reale
+    </p>
+  </div>
+
+  <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
+    {[
+      {
+        num: 1,
+        titolo: 'Kahoot #1',
+        sottotitolo: 'Fondamenti & Logica',
+        url: 'https://create.kahoot.it/details/d2139080-e9d1-40a6-b845-242cf0bd6e09',
+        colore: 'from-pink-600 to-rose-600 hover:from-pink-500 hover:to-rose-500 border-pink-400/40',
+      },
+      {
+        num: 2,
+        titolo: 'Kahoot #2',
+        sottotitolo: 'Condizionali & Selezione',
+        url: 'https://create.kahoot.it/details/927dad76-aeeb-4dca-9284-aded2524d6a3',
+        colore: 'from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 border-blue-400/40',
+      },
+      {
+        num: 3,
+        titolo: 'Kahoot #3',
+        sottotitolo: 'Cicli & Iterazioni',
+        url: 'https://create.kahoot.it/details/f9093830-1293-4da9-a3ea-d0cf0b677e11',
+        colore: 'from-amber-500 to-orange-600 hover:from-amber-400 hover:to-orange-500 border-amber-300/40',
+      },
+      {
+        num: 4,
+        titolo: 'Kahoot #4',
+        sottotitolo: 'Stringhe, Liste & Ripasso',
+        url: 'https://create.kahoot.it/details/06ebdac3-58cf-489f-b3c0-788addf2716a',
+        colore: 'from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 border-emerald-400/40',
+      },
+    ].map((quiz) => (
+      <a
+        key={quiz.num}
+        href={quiz.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={`bg-gradient-to-br ${quiz.colore} p-4 rounded-xl border shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all flex flex-col justify-between group`}
+      >
+        <div className="flex items-center justify-between mb-2">
+          <span className="bg-black/25 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase">
+            Quiz {quiz.num}
+          </span>
+          <span className="text-white/80 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform text-xs">
+            ↗
+          </span>
+        </div>
+        <div>
+          <h3 className="font-extrabold text-base text-white">{quiz.titolo}</h3>
+          <p className="text-[11px] text-white/90 mt-0.5">{quiz.sottotitolo}</p>
+        </div>
+        <div className="mt-3 pt-2 border-t border-white/20 text-[11px] font-bold text-white flex items-center justify-between">
+          <span>Gioca ora</span>
+          <span>→</span>
+        </div>
+      </a>
+    ))}
+  </div>
+</section>
+
         {/* EDITOR PYODIDE IN CIMA */}
         <div ref={editorRef}>
           <PythonEditor codiceIniziale={codiceSelezionato} />

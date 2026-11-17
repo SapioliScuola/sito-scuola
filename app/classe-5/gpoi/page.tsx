@@ -37,6 +37,39 @@ export default function GpoiClasse5Page() {
     Dispensa completa e simulatore interattivo con 50 domande d'esame estratte casualmente.
   </p>
 </Link>
+
+<Link 
+  href="/classe-5/gpoi/organizzazione-aziendale-startup"
+  className="p-5 bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md hover:border-indigo-500 transition-all block group"
+>
+  <div className="flex items-center justify-between mb-2">
+    <span className="bg-indigo-100 text-indigo-800 text-xs font-bold px-2.5 py-0.5 rounded">Modulo</span>
+    <span className="text-xs text-gray-400">Normativa & Ecosistema</span>
+  </div>
+  <h2 className="text-xl font-bold text-gray-800 group-hover:text-indigo-600 mb-1">
+    🏢 Organizzazione Aziendale, Società e Startup
+  </h2>
+  <p className="text-sm text-gray-600">
+    Forme societarie nel Codice Civile, requisiti delle Startup Innovative, Fondi di Garanzia, Crowdfunding e Incubatori (Torino e Italia).
+  </p>
+</Link>
+
+<Link 
+  href="/classe-5/gpoi/redditivita-bilancio-cicli"
+  className="p-5 bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md hover:border-emerald-500 transition-all block group"
+>
+  <div className="flex items-center justify-between mb-2">
+    <span className="bg-emerald-100 text-emerald-800 text-xs font-bold px-2.5 py-0.5 rounded">Modulo</span>
+    <span className="text-xs text-gray-400">Analisi Economico-Finanziaria</span>
+  </div>
+  <h2 className="text-xl font-bold text-gray-800 group-hover:text-emerald-600 mb-1">
+    📊 Bilancio, Indici (ROI/ROE), Valore Azienda e Cicli
+  </h2>
+  <p className="text-sm text-gray-600">
+    Leva finanziaria da ROI a ROE, esempio completo di Bilancio, valutazione con Reddito Medio Prospettico e sfasamento dei cicli aziendali.
+  </p>
+</Link>
+
       </div>
     </div>
   );

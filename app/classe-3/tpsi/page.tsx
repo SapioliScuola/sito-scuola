@@ -127,6 +127,22 @@ export default function TpsiClasse3Page() {
   </p>
 </Link>
 
+<Link
+  href="/classe-3/tpsi/codifica-ottica"
+  className="p-5 bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md hover:border-sky-500 transition-all block group"
+>
+  <div className="flex items-center justify-between mb-2">
+    <span className="bg-sky-100 text-sky-800 text-xs font-bold px-2.5 py-0.5 rounded">Teoria & Lab</span>
+    <span className="text-xs text-gray-400">Unità 2 • Lezione 5</span>
+  </div>
+  <h2 className="text-xl font-bold text-gray-800 group-hover:text-sky-600 mb-1">
+    📷 Codifica dell'Informazione in Formato Ottico
+  </h2>
+  <p className="text-sm text-gray-600">
+    Barcode 1D (EAN-13, ISBN), codici 2D (QR Code, Data Matrix, Aztec, Maxi Code) e simulatori per Check Digit e QR Matrix.
+  </p>
+</Link>
+
 <Link 
   href="/classe-3/tpsi/esercizi-codifiche-controllo"
   className="p-5 bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md hover:border-indigo-500 transition-all block group"
@@ -140,6 +156,22 @@ export default function TpsiClasse3Page() {
   </h2>
   <p className="text-sm text-gray-600">
     Raccolta completa di tutti gli esercizi proposti nella dispensa con svolgimento dettagliato passo-passo.
+  </p>
+</Link>
+
+<Link
+  href="/classe-3/tpsi/esercizi-c"
+  className="p-5 bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md hover:border-sky-500 transition-all block group"
+>
+  <div className="flex items-center justify-between mb-2">
+    <span className="bg-sky-100 text-sky-800 text-xs font-bold px-2.5 py-0.5 rounded">Laboratorio C</span>
+    <span className="text-xs text-gray-400">Esercizi con Test Automatici</span>
+  </div>
+  <h2 className="text-xl font-bold text-gray-800 group-hover:text-sky-600 mb-1">
+    ⚙️ Esercizi di Programmazione C (Codifiche & Controllo)
+  </h2>
+  <p className="text-sm text-gray-600">
+    Editor C nel browser con verifica automatica su casi di test (Packed BCD, bit di parità e algoritmi di codifica).
   </p>
 </Link>
 
